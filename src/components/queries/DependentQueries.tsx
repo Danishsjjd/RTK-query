@@ -1,5 +1,9 @@
-import { useGetPostsQuery, useGetUserQuery, User } from "../store/services/api"
-import { useGetPokemonQuery } from "../store/services/pokemon"
+import {
+  useGetPostsQuery,
+  useGetUserQuery,
+  User,
+} from "../../store/services/api"
+import { useGetPokemonQuery } from "../../store/services/pokemon"
 
 const existingUser: User = {
   id: 1,
