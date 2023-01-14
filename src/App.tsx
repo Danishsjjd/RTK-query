@@ -1,3 +1,4 @@
+import DependentQueries from "./components/DependentQueries"
 import GlobalState from "./components/GlobalState"
 import ParallelQueries from "./components/ParallelQueries"
 import Pokemon from "./components/Pokemon"
@@ -8,6 +9,7 @@ function App() {
       <GlobalState />
       <Pokemon />
       <ParallelQueries />
+      <DependentQueries />
     </>
   )
 }
