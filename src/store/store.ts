@@ -7,10 +7,14 @@ import {
 import { setupListeners } from "@reduxjs/toolkit/dist/query/react"
 import todoApi from "./todoApi"
 import globalState from "./globalState"
+import pokemon from "./services/pokemon"
+import api from "./services/api"
 
 const reducer = {
   globalState,
   [todoApi.reducerPath]: todoApi.reducer,
+  [pokemon.reducerPath]: pokemon.reducer,
+  [api.reducerPath]: api.reducer,
 }
 
 const store = configureStore({
@@ -18,7 +22,10 @@ const store = configureStore({
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(todoApi.middleware),
+    getDefaultMiddleware()
+      .concat(todoApi.middleware)
+      .concat(pokemon.middleware)
+      .concat(api.middleware),
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

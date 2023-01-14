@@ -1,13 +1,12 @@
-import { useState } from "react"
-import { Provider } from "react-redux"
-import store from "./store/store"
+import GlobalState from "./components/GlobalState"
+import Pokemon from "./components/Pokemon"
 
 function App() {
   return (
-    <Provider store={store}>
-      {/* <ApiProvider api={todoApi}> */}
-      {/* </ApiProvider> */}
-    </Provider>
+    <>
+      <GlobalState />
+      <Pokemon />
+    </>
   )
 }
 

@@ -5,7 +5,7 @@ const initialState = {
   sharedText: "",
 }
 
-const counter = createSlice({
+const globalState = createSlice({
   name: "globalState",
   initialState,
   reducers: {
@@ -15,8 +15,8 @@ const counter = createSlice({
   },
 })
 
-export const { updateText } = counter.actions
+export const { updateText } = globalState.actions
 
 export const getText = (state: RootState) => state.globalState.sharedText
 
-export default counter.reducer
+export default globalState.reducer
