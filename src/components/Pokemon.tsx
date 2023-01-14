@@ -1,9 +1,6 @@
 import { useState } from "react"
 import { useGetPokemonQuery } from "../store/services/pokemon"
 
-// pikachu
-// charizard
-
 const Pokemon = () => {
   const [findPokemon, setFindPokemon] = useState("")
   const { data, isUninitialized, isFetching, isError } = useGetPokemonQuery(

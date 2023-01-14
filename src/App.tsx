@@ -1,4 +1,5 @@
 import GlobalState from "./components/GlobalState"
+import ParallelQueries from "./components/ParallelQueries"
 import Pokemon from "./components/Pokemon"
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <GlobalState />
       <Pokemon />
+      <ParallelQueries />
     </>
   )
 }
