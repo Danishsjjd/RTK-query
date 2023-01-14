@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useGetPokemonQuery } from "../store/services/pokemon"
+import { useGetPokemonQuery } from "../../store/services/pokemon"
 
 const Pokemon = () => {
   const [findPokemon, setFindPokemon] = useState("")

@@ -1,5 +1,5 @@
 import {
-  useGetPostsQuery,
+  useGetPostsByUserQuery,
   useGetUserQuery,
   User,
 } from "../../store/services/api"
@@ -18,7 +18,7 @@ const DependentQueries = () => {
     data: postsData,
     isLoading: postLoading,
     isUninitialized,
-  } = useGetPostsQuery(data[0].id, {
+  } = useGetPostsByUserQuery(data[0].id, {
     skip: !data,
   })
 

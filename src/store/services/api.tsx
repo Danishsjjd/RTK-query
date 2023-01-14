@@ -5,7 +5,7 @@ export interface User {
   name: string
 }
 
-export interface Products {
+export interface Post {
   userId: number
   id: number
   title: string
@@ -14,17 +14,39 @@ export interface Products {
 
 const api = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://pokeapi.co/api/v2/pokemon" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://jsonplaceholder.typicode.com",
+  }),
   endpoints: (builder) => ({
     getUser: builder.query<[User], string>({
-      query: (email) =>
-        `https://jsonplaceholder.typicode.com/users?email=${email}`,
+      query: (email) => ({
+        url: "users",
+        params: {
+          email,
+        },
+      }),
     }),
-    getPosts: builder.query<Products[], number>({
-      query: (id) => `https://jsonplaceholder.typicode.com/posts?${id}`,
+    getPostsByUser: builder.query<Post[], number>({
+      query: (id) => ({
+        url: `posts?${id}`,
+      }),
+    }),
+    getAllPost: builder.query<Post[], void>({
+      query: () => `posts`,
+      transformResponse: (response: Post[], meta, arg) => {
+        return response
+      },
+    }),
+    getPost: builder.query<Post, number>({
+      query: (id) => `posts/${id}`,
     }),
   }),
 })
 
-export const { useGetUserQuery, useGetPostsQuery } = api
+export const {
+  useGetUserQuery,
+  useGetPostsByUserQuery,
+  useGetPostQuery,
+  useGetAllPostQuery,
+} = api
 export default api

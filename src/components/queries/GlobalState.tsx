@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../hooks/hooks"
-import { getText, updateText } from "../store/globalState"
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
+import { getText, updateText } from "../../store/globalState"
 
 const TextInput = () => {
   const sharedText = useAppSelector(getText)
