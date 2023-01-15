@@ -31,22 +31,11 @@ const api = createApi({
         url: `posts?${id}`,
       }),
     }),
-    getAllPost: builder.query<Post[], void>({
-      query: () => `posts`,
-      transformResponse: (response: Post[], meta, arg) => {
-        return response
-      },
-    }),
-    getPost: builder.query<Post, number>({
-      query: (id) => `posts/${id}`,
+    getPost: builder.query<Post[], void | number>({
+      query: (id) => (id ? `posts/${id}` : `posts`),
     }),
   }),
 })
 
-export const {
-  useGetUserQuery,
-  useGetPostsByUserQuery,
-  useGetPostQuery,
-  useGetAllPostQuery,
-} = api
+export const { useGetUserQuery, useGetPostsByUserQuery, useGetPostQuery } = api
 export default api
